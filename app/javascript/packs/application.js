@@ -49,4 +49,22 @@ $(document).on('turbolinks:load', function() {
     obj.insertBefore(this);
     return false;
   });
+
+   function remove_fields(link) {
+    $(link).previous("input[type=hidden]").value = "1";
+    $(link).up(".fields").hide();
+  }
+
+
+  // function add_fields(link, association, content) {
+  //   var new_id = new Date().getTime();
+  //   var regexp = new RegExp("new_" + association, "g")
+  //   $(link).up().insert({
+  //     before: content.replace(regexp, new_id)
+  //   });
+  // }
+
+  $(".fields a.remove").on("click", function(e){
+    $(this).parents(".fields").remove();
+  });
 });
